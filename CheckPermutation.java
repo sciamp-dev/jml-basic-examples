@@ -40,7 +40,8 @@ public class CheckPermutation {
     //@ ensures (\result == true) <==> (x.length == y.length) && (\forall int i = 0; i >= 0 && i <= x.length; 
     //@                                     (\exist int j; j >= 0 && j <= y.length; x[i] == y[j]));
     //@ signals (NullPointerException npe) (x == null || y == null);
-    //@ signals (DuplicateException de) ();
+    //@ signals (DuplicateException de) (\exists i; i >= 0 && i <= x.length; (\exists j; j >= 0 && j != i && j <= x.length; x[i] == x[j]))
+    //@     || (\exists i; i >= 0 && i <= y.length; (\exists j; j >= 0 && j != i && j <= y.length; y[i] == y[j]));
     public static boolean isPermutation(int x[], int y[])
         throws NullPointerException, DuplicateException {
             // ...

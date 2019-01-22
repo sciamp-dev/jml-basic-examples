@@ -6,6 +6,7 @@
     - in order to pass the exam P1+P2=16 and P1+P2+L=18, if not must redo both exams
     - method returns the final result or 0 if one must redo both exams or -1 if one must redo the whole course
 */
+
 public class CourseResult {
     
     //@ requires P1 >= 0

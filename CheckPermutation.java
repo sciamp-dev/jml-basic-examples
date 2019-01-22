@@ -21,7 +21,7 @@ public class CheckPermutation {
 
     /*
         Comment:
-        In the official solution x.length == y.length is not in the requires, even though it doesn't make sense to me.
+        In the official solution x.length == y.length is not in the requires, which it doesn't make sense to me.
         In that case the JML should be as follows
     */
 
@@ -36,6 +36,15 @@ public class CheckPermutation {
     public static boolean isPermutation(int x[], int y[]) {
         // ...
     }
+
+    //@ ensures (\result == true) <==> (x.length == y.length) && (\forall int i = 0; i >= 0 && i <= x.length; 
+    //@                                     (\exist int j; j >= 0 && j <= y.length; x[i] == y[j]));
+    //@ signals (NullPointerException npe) (x == null || y == null);
+    //@ signals (DuplicateException de) ();
+    public static boolean isPermutation(int x[], int y[])
+        throws NullPointerException, DuplicateException {
+            // ...
+        }
 
     /*
         Second version, we don't take anymore into consideration the clause "there are no duplicates in x and y"

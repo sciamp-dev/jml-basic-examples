@@ -26,4 +26,14 @@ public class TimeInterval {
     public static TimeInterval getInterval(float[] times, float timePoint) {
         // ...
     }
+
+    //@ ensures (\exists int i; i >= 0 && i <= (times.length - 1); times[i] == \result.getLow() && times[i+1] == \result.getHight())
+    //@     && timePoint >= \result.getLow()
+    //@     && timePoint < \result.getHigh();
+    //@ signals (NullPointerException npe) times == null;
+    //@ signals (UnorderedArrayException uae) (\exists int i; i >=0 && i <= (times.length - 1); times[i] > times[i+1]);
+    public TimeInterval getInterval(float[] times, float timePoint) 
+        throws NullPointerException, UnorderedArrayException {
+            // ...
+        }
 }

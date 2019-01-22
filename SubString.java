@@ -18,4 +18,14 @@ public class SubString {
     public static boolean subString(char[] text, char[] chunk) {
         // ...
     }
+
+    //@ ensures (\exist int i; i >= 0 && i < text.length; 
+    //@             (\forall int j = 0; j >= 0 && j < chunk.length; text[j+i] == chunk[j])
+    //@         ) <==> \result == true;
+    //@ signals (NullPointerException npe) (text == null || chunk == null);
+    //@ signals (InvertedLengthException ile) (chunk.length > text.length);
+    public static boolean subString(char[] text, char[] chunk)
+        throws NullPointerException, InvertedLengthException {
+            // ...
+        }
 }
